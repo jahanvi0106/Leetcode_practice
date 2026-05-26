@@ -1,18 +1,22 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x<0)
-            return 0;
-        vector<int> v;
-        while(x!=0){
-            v.push_back(x%10);
-            x/=10;
+        if(x<0){
+            return false;
         }
-        int n = v.size();
-        for(int i=0; i<n/2; i++){
-            if(v[i]!=v[n-1-i])
-                return 0;
+        else{
+            vector<int> v;
+            while(x!=0){
+                v.push_back(x%10);
+                x/=10;
+            }
+            int l = v.size();
+
+            for(int i=0; i<l/2; i++){
+                if(v[i]!=v[l-i-1])
+                    return false;
+            }
+            return true;
         }
-        return 1;
     }
 };
