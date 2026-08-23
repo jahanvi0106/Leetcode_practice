@@ -1,8 +1,9 @@
 class Solution {
 public:
     bool isValid(string s) {
+        int n = s.size();
         stack<char> p;
-        for(int i=0; s[i]!='\0'; i++){
+        for(int i=0; i<n; i++){
             if(!empty(p)){
                 if(p.top()=='(' && s[i]==')')
                     p.pop();
@@ -16,9 +17,9 @@ public:
             else
                 p.push(s[i]);
         }
-        if(empty(p))
-            return 1;
+        if(p.empty())
+            return true;
         else
-            return 0;
+            return false;
     }
 };
